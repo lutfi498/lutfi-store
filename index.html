@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lutfi Store - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1><a href="#">Lutfi Store</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#produk">Produk</a></li>
+                    <li><a href="#" id="cart-link">Keranjang (<span id="cart-count">0</span>)</a></li>
+                    <li><a href="#" id="login-link">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Panel Admin (Hanya terlihat jika login sebagai admin) -->
+        <section id="admin-panel" style="display: none;">
+            <h2>Panel Admin</h2>
+            <button id="toggle-form-btn">Tambah Produk Baru</button>
+            <form id="add-product-form" style="display: none;">
+                <h3>Tambah Produk</h3>
+                <label for="product-name">Nama Produk:</label>
+                <input type="text" id="product-name" required>
+                
+                <label for="product-price">Harga Produk:</label>
+                <input type="number" id="product-price" required>
+                
+                <label for="product-image-file">Upload Foto Produk:</label>
+<input type="file" id="product-image-file" accept="image/*" required>
+<img id="image-preview" style="max-width: 100px; margin-top: 10px; border-radius: 5px; display: none;">
+                
+                <button type="submit">Simpan Produk</button>
+            </form>
+        </section>
+
+        <section id="beranda">
+            <h2>Selamat Datang di Lutfi Store!</h2>
+            <p>Temukan produk terbaik dengan harga terjangkau.</p>
+        </section>
+
+        <section id="produk">
+            <h2>Produk Kami</h2>
+            <div class="product-grid" id="product-grid">
+                <!-- Produk akan dimuat di sini oleh JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Login -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Masuk</button>
+            </form>
+            <p id="login-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Modal Keranjang -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Keranjang Belanja</h2>
+            <ul id="cart-items">
+                <!-- Item keranjang akan ditambahkan di sini oleh JavaScript -->
+            </ul>
+            <h3>Total: Rp <span id="cart-total">0</span></h3>
+            
+            <!-- Instruksi Pembayaran -->
+            <div class="payment-info">
+                <h4>Silakan lakukan pembayaran ke:</h4>
+                <p><strong>DANA</strong></p>
+                <p class="dana-number">+6288985628174</p>
+                <p>a.n Lutfi Store</p>
+            </div>
+            
+            <button id="checkout-btn">Konfirmasi Pembayaran</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Lutfi Store. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
